@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <!-- basic -->
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <!-- mobile metas -->
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+   <!-- site metas -->
+   <title>WeHelp</title>
+   <meta name="keywords" content="">
+   <meta name="description" content="">
+   <meta name="author" content="">
+   <!-- bootstrap css -->
+   <link rel="stylesheet" href="css/bootstrap.min.css">
+   <!-- style css -->
+   <link rel="stylesheet" href="css/style.css">
+   <!-- Responsive-->
+   <link rel="stylesheet" href="css/responsive.css">
+   <!-- fevicon -->
+   <link rel="icon" href="images/fevicon.png" type="image/gif" />
+   <!-- Scrollbar Custom CSS -->
+   <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+   <!-- Tweaks for older IEs-->
+   <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
+      media="screen">
+   <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+</head>
+<!-- body -->
+
+<body class="main-layout">
+   <!-- loader  -->
+   <div class="loader_bg">
+      <div class="loader"><img src="images/loading.gif" alt="#" /></div>
+   </div>
+   <!-- end loader -->
+   <div id="myNav" class="overlay">
+
+      <div class="overlay-content">
+         <input type="text" id="bellachao" placeholder="Search.."><br><a href="javascript:void(0)" class="closebtn"
+            onclick="closeNav()"><button class="sbut" type="submit"
+               onclick="findString(fn());closeNav()">Search</button></a>
+      </div>
+   </div>
+   <div id="myNav1" class="overlay">
+
+      <div class="overlay-content">
+         <!-- <i class="fa fa-microphone" onclick="record()"></i>
+            <input type="speechToText" id="boomm" placeholder="Spoken Text" onclick="record()"><br><a href="javascript:void(0)" class="closebtn" onclick="closeNav1()"><button class="sbut" type="submit" onclick="findString(fn());closeNav1()">Search</button></a> -->
+         <form id="labnol" method="get">
+            <div class="speech">
+               <input type="text" name="s" id="transcript" class="joo" placeholder="Say Something" />
+               <br>
+               <br>
+               <br>
+               <i class="fa fa-microphone fa-5x" id="boommm" onclick="startDictation()"></i>
+            </div>
+         </form>
+      </div>
+   </div>
+   <!-- header -->
+   <header>
+      <!-- header inner -->
+      <div class="head_top">
+         <div class="header">
+            <div class="container-fluid">
+               <div class="row">
+                  <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
+                     <div class="full">
+                        <div class="center-desk">
+                           <div class="logo">
+                              <a href="index.html"><img id="looog" src="icon/back.png" alt="#" /></a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
+                     <nav class="navigation navbar navbar-expand-md navbar-dark ">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                           data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false"
+                           aria-label="Toggle navigation">
+                           <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarsExample04">
+                           <ul class="navbar-nav mr-auto">
+                              <li class="nav-item">
+                                 <a class="nav-link" href="index.html"> Home </a>
+                              </li>
+                              <li class="nav-item">
+                                 <a class="nav-link" href="form.html">Test</a>
+                              </li>
+                              <li class="nav-item">
+                                 <a class="nav-link" href="logi.html">Login/Register</a>
+                              </li>
+                              <li class="nav-item">
+                                 <a class="nav-link" href="contactabout.html">Contact us</a>
+                              </li>
+                           </ul>
+                        </div>
+                     </nav>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- end header inner -->
+         <!-- end header -->
+         <!-- banner -->
+         <div>
+            <button class="boomer" id="cclick"><span>Listen</span></button>
+         </div>
+         <!-- action button -->
+         <div class="fab-container">
+            <div class="fab fab-icon-holder">
+               <i class="fa fa-bars"></i>
+            </div>
+            <ul class="fab-options">
+               <li>
+                  <span class="fab-label">Speak</span>
+                  <div class="fab-icon-holder">
+                     <i class="fa fa-microphone" onclick="openNav1()"></i>
+                  </div>
+               </li>
+               <li>
+                  <span class="fab-label">Search</span>
+                  <div class="fab-icon-holder">
+                     <i class="fa fa-search" onClick="openNav()"></i>
+                     <!-- <span class="popuptext" id="myPopup"><input type="text" id="bellachao" placeholder="Search.."><button type="submit" onclick="findString(fn())">Submit</button></span> -->
+
+                  </div>
+               </li>
+
+
+
+
+
+               <li>
+                  <span class="fab-label">Go to Top</span>
+                  <div class="fab-icon-holder">
+                     <i class="fa fa-arrow-up" id="myBtn" onclick="scrolltoTop()"></i>
+                  </div>
+               </li>
+            </ul>
+         </div>
+         <div class="hell"><select id="voiceList"></select></div>
+
+         <!-- action button end -->
+         <section class="banner_main">
+            <div class="container-fluid">
+               <div class="row d_flex">
+                  <div class="col-md-6">
+                     <div class="text-bg">
+                        <h1>Take this test to get a better guidance</h1>
+
+                     </div>
+
+
+                  </div>
+               </div>
+            </div>
+      </div>
+      </section>
+      </div>
+   </header>
+   <!-- end banner -->
+
+   <div id="contact" class="contact">
+      <div class="container">
+         <div class="row">
+            <div class="col-md-12">
+               <div class="titlepage">
+                  <h2>Take Test</h2>
+                  <span>Attempt the test <br> so that we can know you better and suggest a perfect career
+                  </span>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div>
+         <div class="container">
+
+
+            <form class="main_form ">
+               <form>
+
+                  <li>
+                     <div class="question">On the count of 1-5 how organized are you?</div>
+                  </li>
+                  <input id="answer" type="radio" name="group1" value="1"> 1<br>
+                  <input id="answer" type="radio" name="group1" value="2"> 2<br>
+                  <input id="answer" type="radio" name="group1" value="3"> 3<br>
+                  <input id="answer" type="radio" name="group1" value="4"> 4<br>
+                  <input id="answer" type="radio" name="group1" value="5"> 5
+                  <hr>
+
+                  <li>
+                     <div class="question">Do you prefer a particular time schedule or are you more comfortable with
+                        flexible time?</div>
+                  </li>
+                  <input id="answer" type="radio" name="group2" value="0"> Flexible Time<br>
+                  <input id="answer" type="radio" name="group2" value="1"> Fixed Time
+                  <hr>
+
+                  <li>
+                     <div class="question">On the count of 1-5 how intellectual are you?</div>
+                  </li>
+                  <input id="answer" type="radio" name="group3" value="1"> 1<br>
+                  <input id="answer" type="radio" name="group3" value="2"> 2<br>
+                  <input id="answer" type="radio" name="group3" value="3"> 3<br>
+                  <input id="answer" type="radio" name="group3" value="4"> 4<br>
+                  <input id="answer" type="radio" name="group3" value="5"> 5
+                  <hr>
+
+                  <li>
+                     <div class="question">On the count of 1-5 how updated are you with current affairs?</div>
+                  </li>
+                  <input id="answer" type="radio" name="group4" value="1"> 1<br>
+                  <input id="answer" type="radio" name="group4" value="2"> 2<br>
+                  <input id="answer" type="radio" name="group4" value="3"> 3<br>
+                  <input id="answer" type="radio" name="group4" value="4"> 4<br>
+                  <input id="answer" type="radio" name="group4" value="5"> 5
+                  <hr>
+
+                  <li>
+                     <div class="question">Do you prefer to work in a group or individually?</div>
+                  </li>
+                  <input id="answer" type="radio" name="group5" value="1"> 1<br>
+                  <input id="answer" type="radio" name="group5" value="2"> 2<br>
+                  <input id="answer" type="radio" name="group5" value="3"> 3<br>
+                  <input id="answer" type="radio" name="group5" value="4"> 4<br>
+                  <input id="answer" type="radio" name="group5" value="5"> 5
+                  <hr>
+
+                  <li>
+                     <div class="question">How well can you lead a team?</div>
+                  </li>
+                  <input id="answer" type="radio" name="group6" value="1"> 1<br>
+                  <input id="answer" type="radio" name="group6" value="2"> 2<br>
+                  <input id="answer" type="radio" name="group6" value="3"> 3<br>
+                  <input id="answer" type="radio" name="group6" value="4"> 4<br>
+                  <input id="answer" type="radio" name="group6" value="5"> 5
+                  <hr>
+
+                  <li>
+                     <div class="question">On the count of 1-5 would you rate yourself on empathy and the ability to
+                        care for others?</div>
+                  </li>
+                  <input id="answer" type="radio" name="group7" value="1"> 1<br>
+                  <input id="answer" type="radio" name="group7" value="2"> 2<br>
+                  <input id="answer" type="radio" name="group7" value="3"> 3<br>
+                  <input id="answer" type="radio" name="group7" value="4"> 4<br>
+                  <input id="answer" type="radio" name="group7" value="5"> 5
+                  <hr>
+
+                  <li>
+                     <div class="question">Are you interested into athletics/sports?</div>
+                  </li>
+                  <input id="answer" type="radio" name="group8" value="1"> 1<br>
+                  <input id="answer" type="radio" name="group8" value="2"> 2<br>
+                  <input id="answer" type="radio" name="group8" value="3"> 3<br>
+                  <input id="answer" type="radio" name="group8" value="4"> 4<br>
+                  <input id="answer" type="radio" name="group8" value="5"> 5
+                  <hr>
+
+                  <li>
+                     <div class="question">Are you ready to work overtime for your job?</div>
+                  </li>
+                  <input id="answer" type="radio" name="group9" value="1"> Not at all!<br>
+                  <input id="answer" type="radio" name="group9" value="2"> Only if its necessary.<br>
+                  <input id="answer" type="radio" name="group9" value="3"> Sometimes I can do it.<br>
+                  <input id="answer" type="radio" name="group9" value="4"> Yes, I don't have any problem with it.<br>
+                  <input id="answer" type="radio" name="group9" value="5"> Sure anyday
+                  <hr>
+
+                  <li>
+                     <div class="question">Are you a good problem-solver?</div>
+                  </li>
+                  <input id="answer" type="radio" name="group10" value="0">
+                  No. Most times I need help from others<br>
+                  <input id="answer" type="radio" name="group10" value="1">
+                  Absolutely
+                  <hr>
+
+                  <li>
+                     <div class="question">Are you interested into math and science.?</div>
+                  </li>
+                  <input id="answer" type="radio" name="group11" value="1"> 1<br>
+                  <input id="answer" type="radio" name="group11" value="2"> 2<br>
+                  <input id="answer" type="radio" name="group11" value="3"> 3<br>
+                  <input id="answer" type="radio" name="group11" value="4"> 4<br>
+                  <input id="answer" type="radio" name="group11" value="5"> 5
+                  <hr>
+
+                  <li>
+                     <div class="question">How competitive are you on a scale of 1-5?</div>
+                  </li>
+                  <input id="answer" type="radio" name="group12" value="1"> 1<br>
+                  <input id="answer" type="radio" name="group12" value="2"> 2<br>
+                  <input id="answer" type="radio" name="group12" value="3"> 3<br>
+                  <input id="answer" type="radio" name="group12" value="4"> 4<br>
+                  <input id="answer" type="radio" name="group12" value="5"> 5
+                  <hr>
+
+                  <li>
+                     <div class="question">How creative are you in the field of singing ,dancing, drawing ,etc on a
+                        scale of 1-5?</div>
+                  </li>
+                  <input id="answer" type="radio" name="group13" value="1"> 1<br>
+                  <input id="answer" type="radio" name="group13" value="2"> 2<br>
+                  <input id="answer" type="radio" name="group13" value="3"> 3<br>
+                  <input id="answer" type="radio" name="group13" value="4"> 4<br>
+                  <input id="answer" type="radio" name="group13" value="5"> 5
+                  <hr>
+
+                  <li>
+                     <div class="question">How would you rate your communication skills?</div>
+                  </li>
+                  <input id="answer" type="radio" name="group14" value="1"> 1<br>
+                  <input id="answer" type="radio" name="group14" value="2"> 2<br>
+                  <input id="answer" type="radio" name="group14" value="3"> 3<br>
+                  <input id="answer" type="radio" name="group14" value="4"> 4<br>
+                  <input id="answer" type="radio" name="group14" value="5"> 5
+                  <hr>
+
+                  <li>
+                     <div class="question">On a count of 1-5, how much are you comfortable to adapting to frequent
+                        changes on the type of job you would do?</div>
+                  </li>
+                  <input id="answer" type="radio" name="group15" value="1"> 1<br>
+                  <input id="answer" type="radio" name="group15" value="2"> 2<br>
+                  <input id="answer" type="radio" name="group15" value="3"> 3<br>
+                  <input id="answer" type="radio" name="group15" value="4"> 4<br>
+                  <input id="answer" type="radio" name="group15" value="5"> 5
+                  <hr>
+
+                  <li>
+                     <div class="question">How well can you handle multiple tasks on the scale of 1-5?</div>
+                  </li>
+                  <input id="answer" type="radio" name="group16" value="1"> 1<br>
+                  <input id="answer" type="radio" name="group16" value="2"> 2<br>
+                  <input id="answer" type="radio" name="group16" value="3"> 3<br>
+                  <input id="answer" type="radio" name="group16" value="4"> 4<br>
+                  <input id="answer" type="radio" name="group16" value="5"> 5
+                  <hr>
+
+                  <button class="sendtext" onclick="handleClick()"> <a class="sentxt" href="answer.html">Send</a> </button>
+               </form>
+            </form>
+         </div>
+      </div>
+   </div>
+   </div>
+
+   <!-- end contact -->
+   <!--  footer -->
+   <footer>
+      <div class="footer">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12 ">
+                  <div class="cont">
+                     <h3> <strong class="multi"> Hoping you to see</strong><br>
+                        with a better Life and Future
+                     </h3>
+                  </div>
+               </div>
+               <div class="col-md-12">
+                  <ul class="social_icon">
+
+                     <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+
+
+                  </ul>
+               </div>
+            </div>
+         </div>
+         <div class="copyright">
+            <div class="container">
+               <div class="row">
+                  <div class="col-md-12">
+                     <p>Made with Love by Team Achievers</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </footer>
+   <!-- end footer -->
+   <!-- Javascript files-->
+   <script>
+      function scrolltoTop() {
+         document.documentElement.scrollTop = 0;
+
+      }
+      function myFunction() {
+         var popup = document.getElementById("myPopup");
+         popup.classList.toggle("show");
+      }
+      function findString(text) {
+         document.querySelector("#output").textContent = window.find(text);
+      }
+      function fn() {
+         var bella = document.getElementById("bellachao").value;
+         return bella;
+      }
+      function openNav() {
+         document.getElementById("myNav").style.width = "100%";
+      }
+
+      function closeNav() {
+         document.getElementById("myNav").style.width = "0%";
+      }
+      function openNav1() {
+         document.getElementById("myNav1").style.width = "100%";
+      }
+
+      function closeNav1() {
+         document.getElementById("myNav1").style.width = "0%";
+      }
+      function record() {
+         var recognition = new webkitSpeechRecognition();
+         recognition.lang = "en-GB";
+
+         recognition.onresult = function (event) {
+            // console.log(event);
+            document.getElementById("speechToText").value =
+               event.results[0][0].transcript;
+         };
+         recognition.start();
+      }
+      function startDictation() {
+         if (window.hasOwnProperty('webkitSpeechRecognition')) {
+            var recognition = new webkitSpeechRecognition();
+
+            recognition.continuous = false;
+            recognition.interimResults = false;
+            recognition.lang = 'en-US';
+            recognition.start();
+
+            recognition.onresult = function (e) {
+               document.getElementById('transcript').value = e.results[0][0].transcript;
+               recognition.stop();
+               //   document.getElementById('labnol').submit();
+               closeNav1();
+               findString(document.getElementById('transcript').value = e.results[0][0].transcript);
+            };
+            recognition.onerror = function (e) {
+               recognition.stop();
+            };
+         }
+      }
+      const getSelectedText = () => window.getSelection().toString();
+
+      var voiceList = document.querySelector("#voiceList");
+      var btnSpeak = document.querySelector("#cclick");
+      var synth = window.speechSynthesis;
+      var voices = [];
+
+      PopulateVoices();
+      if (speechSynthesis !== undefined) {
+         speechSynthesis.onvoiceschanged = PopulateVoices;
+      }
+
+      btnSpeak.addEventListener("click", () => {
+
+         var toSpeak = new SpeechSynthesisUtterance(getSelectedText());
+
+         var selectedVoiceName =
+            voiceList.selectedOptions[0].getAttribute("data-name");
+         voices.forEach((voice) => {
+            if (voice.name === selectedVoiceName) {
+               toSpeak.voice = voice;
+            }
+         });
+         synth.speak(toSpeak);
+      });
+
+      function PopulateVoices() {
+         voices = synth.getVoices();
+         var selectedIndex = voiceList.selectedIndex < 0 ? 0 : voiceList.selectedIndex;
+         voiceList.innerHTML = "";
+         voices.forEach((voice) => {
+            var listItem = document.createElement("option");
+            listItem.textContent = voice.name;
+            listItem.setAttribute("data-lang", voice.lang);
+            listItem.setAttribute("data-name", voice.name);
+            voiceList.appendChild(listItem);
+         });
+
+         voiceList.selectedIndex = selectedIndex;
+      }
+
+      // 
+      function handleClick() {
+         const val = [];
+         for (var i = 1; i <= 16; i++) {
+            var radios = document.getElementsByName('group' + i);
+            for (var j = 0; j < radios.length; j++) {
+               var radio = radios[j];
+               if (radio.checked) {
+                  val[i - 1] = radio.value;
+               }
+            }
+         }
+        
+      }
+
+   </script>
+   <script src="js/jquery.min.js"></script>
+   <script src="js/popper.min.js"></script>
+   <script src="js/bootstrap.bundle.min.js"></script>
+   <script src="js/jquery-3.0.0.min.js"></script>
+   <script src="js/plugin.js"></script>
+   <!-- sidebar -->
+   <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+   <script src="js/custom.js"></script>
+   <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+</body>
+
+</html>
